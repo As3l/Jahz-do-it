@@ -18,7 +18,7 @@ export const createTodo = async (title: string, description: string) => {
 
 export const deleteTodo = async (id: number) => {
   const res = await fetch(`${BASE_URL}/${id}`, {
-    method: "DELETE",
+    method: "DELETE", 
   });
   return res.text();
 };
