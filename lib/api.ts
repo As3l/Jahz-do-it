@@ -11,7 +11,7 @@ export const createTodo = async (title: string, description: string) => {
   const res = await fetch(`${BASE_URL}`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ title }),
+    body: JSON.stringify({ title, description }),
   });
   return res.json();
 };

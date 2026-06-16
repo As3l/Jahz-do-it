@@ -27,7 +27,7 @@ export default function TodoApp() {
 
   const loadTodos = async () => {
     const data = await getTodos();
-    setTodos(data);
+    setTodos([...data]);
     setLoading(false);
   };
 
@@ -38,7 +38,8 @@ export default function TodoApp() {
   const handleAdd = async () => {
     const trimmed = title.trim();
     if (!trimmed) return;
-    await createTodo(trimmed);
+    await createTodo(trimmed, "");
+
     setTitle("");
     loadTodos();
   };
@@ -49,6 +50,7 @@ export default function TodoApp() {
 
   const handleToggle = async (todo: Todo) => {
     await updateTodo(todo.id, {
+       title: todo.title,
       status: todo.status === "completed" ? "active" : "completed",
     });
     loadTodos();
