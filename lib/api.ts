@@ -7,7 +7,7 @@ export const getTodos = async () => {
   return res.json();
 };
 
-export const createTodo = async (title: string) => {
+export const createTodo = async (title: string, description: string) => {
   const res = await fetch(`${BASE_URL}`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
